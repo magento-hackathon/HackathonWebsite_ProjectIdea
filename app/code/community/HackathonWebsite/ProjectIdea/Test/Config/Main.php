@@ -24,6 +24,6 @@ class HackathonWebsite_ProjectIdea_Test_Config_Main extends EcomDev_PHPUnit_Test
 
     public function testVersion()
     {
-        $this->assertModuleVersionGreaterThanOrEquals('1.0.0');
+        $this->assertModuleVersionGreaterThanOrEquals('1.0.1');
     }
 }
