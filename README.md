@@ -1,0 +1,1 @@
+Reimplementation of the Symfony2 ProjectIdea module
