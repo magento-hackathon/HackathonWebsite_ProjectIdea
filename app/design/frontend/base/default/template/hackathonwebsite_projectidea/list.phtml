@@ -1,1 +1,11 @@
-asdf
+<?php /* @var $this HackathonWebsite_ProjectIdea_Block_List */ ?>
+<?php if ($this->getProjectIdeaCollection()->getSize()): ?>
+    <ul id="projectIdea-list">
+        <?php foreach ($this->getProjectIdeaCollection() as $idea): ?>
+            <li>
+                <strong><?php echo $idea->getTitle(); ?></strong> (<?php echo $idea->getSubmitter();?>)
+                <p><?php echo $idea->getDescription(); ?></p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

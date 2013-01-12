@@ -70,4 +70,18 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
         $this->assertRedirectTo('projectIdea');
     }
 
+    /**
+     * @loadFixture projectIdea
+     */
+    public function testProjectIdeaList()
+    {
+        $this->dispatch('projectIdea/index/list');
+        $this->assertLayoutBlockCreated('list');
+        $this->assertLayoutBlockRendered('list');
+
+        $this->assertResponseBodyContains('My cool projectidea'); // title
+        $this->assertResponseBodyContains('Fabian Blechschmidt'); // submitter
+        $this->assertResponseBodyContains('This is a short description of the project idea!'); // description
+    }
+
 }
