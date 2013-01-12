@@ -1,0 +1,5 @@
+app/code/community/HackathonWebsite/ProjectIdea app/code/community/HackathonWebsite/ProjectIdea
+app/design/frontend/base/default/layout/hackathonwebsite_projectidea.xml app/design/frontend/base/default/layout/hackathonwebsite_projectidea.xml
+app/design/frontend/base/default/template/hackathonwebsite_projectidea app/design/frontend/base/default/template/hackathonwebsite_projectidea
+
+app/etc/modules/HackathonWebsite_ProjectIdea.xml app/etc/modules/HackathonWebsite_ProjectIdea.xml

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<layout>
+    <projectidea_index_index>
+        <reference name="content">
+            <block type="core/messages" name="messages" as="messages" />
+            <block type="hackathonwebsite_projectidea/form" name="form"
+                   template="hackathonwebsite_projectidea/form.phtml">
+            </block>
+        </reference>
+    </projectidea_index_index>
+    <projectidea_index_list>
+        <reference name="content">
+            <block type="hackathonwebsite_projectidea/list" name="list"
+                   template="hackathonwebsite_projectidea/list.phtml" />
+        </reference>
+    </projectidea_index_list>
+</layout>
