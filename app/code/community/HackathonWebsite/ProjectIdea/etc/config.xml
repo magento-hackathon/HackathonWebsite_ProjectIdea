@@ -20,6 +20,11 @@
                 </entities>
             </hackathonwebsite_projectidea_resource>
         </models>
+        <helpers>
+            <hackathonwebsite_projectidea>
+                <class>HackathonWebsite_ProjectIdea_Helper</class>
+            </hackathonwebsite_projectidea>
+        </helpers>
         <resources>
             <hackathonwebsite_projectidea_setup>
                 <setup>
@@ -51,6 +56,26 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <hackathonwebsite_projectidea>
+                    <file>hackathonwebsite_projectidea.xml</file>
+                </hackathonwebsite_projectidea>
+            </updates>
+        </layout>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <projectidea before="Mage_Adminhtml">HackathonWebsite_ProjectIdea_Adminhtml</projectidea>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <default>
         <dev>
             <template>

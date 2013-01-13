@@ -1,0 +1,5 @@
+<?php
+class HackathonWebsite_ProjectIdea_Block_Adminhtml_ProjectIdea_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
+{
+
+}

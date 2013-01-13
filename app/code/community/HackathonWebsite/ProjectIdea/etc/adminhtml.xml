@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <projectIdea translate="title" module="hackathonwebsite_projectidea">
+                    <title>Project Ideas</title>
+                    <action>adminhtml/projectidea</action>
+                    <sort_order>18</sort_order>
+                </projectIdea>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <projectIdea translate="title">
+                                <title>Project Ideas</title>
+                                <sort_order>18</sort_order>
+                            </projectIdea>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

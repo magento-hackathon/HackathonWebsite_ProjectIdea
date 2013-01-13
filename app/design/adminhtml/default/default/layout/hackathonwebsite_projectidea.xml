@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<layout>
+    <adminhtml_projectidea_index>
+        <reference name="content">
+            <block type="hackathonwebsite_projectidea/adminhtml_projectIdea" name="grid_container" />
+        </reference>
+    </adminhtml_projectidea_index>
+    <adminhtml_projectidea_edit>
+        <reference name="content">
+            <block type="hackathonwebsite_projectidea/adminhtml_projectIdea_edit" name="form_container" />
+        </reference>
+    </adminhtml_projectidea_edit>
+</layout>
