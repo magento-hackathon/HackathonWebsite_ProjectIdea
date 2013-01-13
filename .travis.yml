@@ -6,6 +6,7 @@ before_install:
   - mkdir test/
 before_script:
   - CURR_DIR=$(pwd)
+  - git clone --branch=master --depth=100 --quiet git://github.com/sebastianbergmann/php-invoker.git vendor/php-invoker
   - bin/mage-ci install test 1.7.0.2 magento_test -c -t -r http://mage-ci.ecomdev.org
   - bin/mage-ci install-module test $CURR_DIR
   - git clone git://github.com/IvanChepurnyi/EcomDev_PHPUnit.git -b dev ./phpunit/
