@@ -6,7 +6,7 @@ class HackathonWebsite_ProjectIdea_Model_Resource_ProjectIdea extends Mage_Core_
      */
     protected function _construct()
     {
-        $this->_init('hackathonwebsite_projectidea/projectidea', 'project_id');
+        $this->_init('hackathonwebsite_projectidea/projectidea', 'projectIdea_id');
     }
 
     protected function _beforeSave(Mage_Core_Model_Abstract $object)
