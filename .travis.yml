@@ -5,7 +5,12 @@ before_install:
   - composer install --dev
   - mkdir test/
 before_script:
-  - git clone --branch=master --depth=100 --quiet git://github.com/sebastianbergmann/php-invoker.git vendor/php-invoker
+  - sudo apt-get -qq update > /dev/null
+  - composer selfupdate --quiet
+  - composer install --dev
+  - vendor/phpunit/phpunit/composer/bin/phpunit
+  - composer update --dev
+
   - CURR_DIR=$(pwd)
   - bin/mage-ci install test 1.7.0.2 magento_test -c -t -r http://mage-ci.ecomdev.org
   - bin/mage-ci install-module test $CURR_DIR
