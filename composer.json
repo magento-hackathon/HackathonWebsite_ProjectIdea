@@ -1,6 +1,8 @@
 {
     "require-dev": {
-        "ecomdev/mage-ci": "master-dev"
+        "ecomdev/mage-ci": "master-dev",
+        "phpunit/phpunit": "3.7.*",
+        "phpunit/php-invoker": "*"
     },
     "config": {
         "bin-dir": "bin"
