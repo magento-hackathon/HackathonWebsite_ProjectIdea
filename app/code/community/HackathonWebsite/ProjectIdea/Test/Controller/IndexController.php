@@ -5,16 +5,16 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
     {
         $this->dispatch('projectIdea');
         $this->assertLayoutHandleLoaded('projectidea_index_index');
-        $this->assertLayoutBlockCreated('form');
-        $this->assertLayoutBlockRendered('form');
-    }
-
-    public function testListAction()
-    {
-        $this->dispatch('projectIdea/index/list');
-        $this->assertLayoutHandleLoaded('projectidea_index_list');
         $this->assertLayoutBlockCreated('list');
         $this->assertLayoutBlockRendered('list');
+    }
+
+    public function testAddAction()
+    {
+        $this->dispatch('projectIdea/index/add');
+        $this->assertLayoutHandleLoaded('projectidea_index_add');
+        $this->assertLayoutBlockCreated('form');
+        $this->assertLayoutBlockRendered('form');
     }
 
     public function testProjectSaveAction()
@@ -45,7 +45,7 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
         $this->dispatch('projectIdea/index/post');
 
         $this->assertRequestDispatched();
-        $this->assertRedirectTo('projectIdea/index/list');
+        $this->assertRedirectTo('projectIdea/index');
     }
 
     public function testForwardWithoutPost()
@@ -75,7 +75,7 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
      */
     public function testProjectIdeaList()
     {
-        $this->dispatch('projectIdea/index/list');
+        $this->dispatch('projectIdea/index');
         $this->assertLayoutBlockCreated('list');
         $this->assertLayoutBlockRendered('list');
 

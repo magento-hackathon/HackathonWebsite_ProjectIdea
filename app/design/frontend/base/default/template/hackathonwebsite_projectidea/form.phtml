@@ -1,15 +1,42 @@
 <?php /* @var $this HackathonWebsite_ProjectIdea_Block_Form */ ?>
+<?php
+
+/** @var $customer Mage_Customer_Model_Customer */
+$customer = Mage::getSingleton('customer/session')->getCustomer();
+
+?>
 <div class="projectIdea-create">
     <div class="page-title">
-        <h1><?php echo $this->__('Create a project idea') ?></h1>
+        <h1><?php echo $this->__('Add Your Project Idea') ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-    <form action="<?php echo $this->getUrl('*/*/post') ?>" method="post" id="form-validate">
+    <form action="<?php echo $this->getUrl('*/*/post') ?>" method="post" id="form-validate" class="form-horizontal">
 
-        <input type="text" name="title" />
-        <input type="text" name="submitter" />
-        <textarea name="description"></textarea>
-        <input type="submit" />
+        <div class="control-group">
+            <label class="control-label" for="title"><?php echo $this->__('Project Title:') ?></label>
+            <div class="controls"><input type="text" name="title" id="title" /></div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="submitter"><?php echo $this->__('Your Name:') ?></label>
+            <div class="controls">
+                <?php if ($customer->getId()) : ?>
+                    <div class="control-pre-filled"><?php echo $customer->getName() ?></div>
+                    <input type="hidden" name="submitter" value="<?php echo $customer->getName() ?>"/>
+                <?php else : ?>
+                    <input type="text" name="submitter" id="submitter" />
+                <?php endif ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="description"><?php echo $this->__('Description:') ?></label>
+            <div class="controls"><textarea name="description" id="description"></textarea></div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" class="btn btn-primary" value="<?php echo $this->__('Add Idea') ?>"/>
+            </div>
+        </div>
+
 
     </form>
     <script type="text/javascript">

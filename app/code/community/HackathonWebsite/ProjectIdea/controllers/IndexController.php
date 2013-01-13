@@ -8,7 +8,7 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
         $this->renderLayout();
     }
 
-    public function listAction()
+    public function addAction()
     {
         $this->loadLayout();
 
@@ -47,6 +47,6 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
         $projectIdea->setSubmitter($data['submitter']);
         $projectIdea->save();
 
-        return $this->_redirect('projectIdea/index/list');
+        return $this->_redirect('projectIdea/index');
     }
 }
