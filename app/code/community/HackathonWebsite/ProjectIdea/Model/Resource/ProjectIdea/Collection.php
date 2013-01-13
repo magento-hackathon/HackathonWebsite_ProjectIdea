@@ -5,7 +5,7 @@ class HackathonWebsite_ProjectIdea_Model_Resource_ProjectIdea_Collection
     protected function _construct()
     {
         parent::_construct();
-        $this->_init('hackathonwebsite_projectidea/projectIdea');
+        $this->_init('hackathonwebsite_projectidea/projectidea');
     }
 
 }
