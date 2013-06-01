@@ -10,8 +10,8 @@
     <ul id="projectIdea-list" class="unstyled">
         <?php foreach ($this->getProjectIdeaCollection() as $idea): ?>
             <li class="well">
-                <strong><?php echo $idea->getTitle(); ?></strong> (<?php echo $idea->getSubmitter();?>)
-                <p><?php echo $idea->getDescription(); ?></p>
+                <strong><?php echo $this->htmlEscape($idea->getTitle()); ?></strong> (<?php echo $this->htmlEscape($idea->getSubmitter());?>)
+                <p><?php echo $this->htmlEscape($idea->getDescription()); ?></p>
             </li>
         <?php endforeach; ?>
     </ul>

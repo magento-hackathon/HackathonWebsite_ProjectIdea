@@ -55,6 +55,20 @@ class HackathonWebsite_ProjectIdea_Block_Adminhtml_ProjectIdea_Grid extends Mage
         return parent::_prepareColumns();
     }
 
+    protected function _prepareMassaction()
+    {
+        $this->setMassactionIdField('projectIdea_id');
+        $this->getMassactionBlock()->setFormFieldName('projectIdea_id');
+
+        $this->getMassactionBlock()->addItem('delete', array(
+            'label'    => $this->__('Delete'),
+            'url'      => $this->getUrl('*/*/massDelete'),
+            'confirm'  => $this->__('Are you sure?')
+        ));
+
+        return $this;
+    }
+
     public function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', array('id' => $row->getId()));
