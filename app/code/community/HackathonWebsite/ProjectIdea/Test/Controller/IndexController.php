@@ -67,7 +67,7 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
         );
 
         $this->dispatch('projectIdea/index/post');
-        $this->assertRedirectTo('projectIdea');
+        $this->assertRedirectTo('/projectIdea/index/add');
     }
 
     /**

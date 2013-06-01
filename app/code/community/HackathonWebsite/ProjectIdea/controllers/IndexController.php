@@ -42,8 +42,12 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
         }
 
         /* @var $projectIdea HackathonWebsite_ProjectIdea_Model_ProjectIdea */
-        $projectIdea = Mage::getModel('hackathonwebsite_projectidea/projectIdea')->load($data['project_idea_id']);
-        if(!isset($data['project_idea_id']) || !Mage::helper('hackathonwebsite_projectidea')->isCustomerOwnerOfProjectIdea($projectIdea)) {
+        $projectIdea = Mage::getModel('hackathonwebsite_projectidea/projectIdea');
+        if (isset($data['project_idea_id'])) {
+            $projectIdea->load($data['project_idea_id']);
+        }
+
+        if (!Mage::helper('hackathonwebsite_projectidea')->isCustomerOwnerOfProjectIdea($projectIdea)) {
             $projectIdea = Mage::getModel('hackathonwebsite_projectidea/projectIdea');
         }
         $projectIdea->setTitle($data['title']);
@@ -51,7 +55,7 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
         $projectIdea->setSubmitter($data['submitter']);
         $projectIdea->save();
 
-        if(!Mage::helper('customer')->isLoggedIn()) {
+        if (!Mage::helper('customer')->isLoggedIn()) {
             // if we don't save a customer_id with the project ids save it to the session
             Mage::helper('hackathonwebsite_projectidea')->saveProjectIdToSession($projectIdea);
         }
