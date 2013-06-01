@@ -14,6 +14,10 @@ class HackathonWebsite_ProjectIdea_Model_Resource_ProjectIdea extends Mage_Core_
         if (!$object->getCreatedAt()) {
             $object->setCreatedAt($this->formatDate(time()));
         }
+
+        if (!$object->getCustomerId()) {
+            $object->setCustomerId(Mage::getSingleton('customer/session')->getCustomerId());
+        }
         parent::_beforeSave($object);
     }
 

@@ -47,6 +47,11 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
         $projectIdea->setSubmitter($data['submitter']);
         $projectIdea->save();
 
+        if(!Mage::helper('customer')->isLoggedIn()) {
+            // if we don't save a customer_id with the project ids save it to the session
+            Mage::helper('hackathonwebsite_projectidea')->saveProjectIdToSession($projectIdea);
+        }
+
         return $this->_redirect('projectIdea/index');
     }
 }
