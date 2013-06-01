@@ -1,8 +1,11 @@
 <?php /* @var $this HackathonWebsite_ProjectIdea_Block_List */ ?>
 <div class="page-title">
-    <h1><?php echo $this->__('Ideas for Projects') ?></h1>
+    <h1>
+        <?php echo $this->__('Ideas for Projects') ?>
+    </h1>
+    <button class="btn btn-primary" onclick="setLocation('<?php echo $this->getUrl('projectIdea/index/add') ?>')"><?php echo $this->__('Add an Idea') ?></button>
 </div>
-<button class="btn btn-primary" onclick="setLocation('<?php echo $this->getUrl('projectIdea/index/add') ?>')"><?php echo $this->__('Add an Idea') ?></button>
+
 <?php if ($this->getProjectIdeaCollection()->getSize()): ?>
     <ul id="projectIdea-list" class="unstyled">
         <?php foreach ($this->getProjectIdeaCollection() as $idea): ?>
