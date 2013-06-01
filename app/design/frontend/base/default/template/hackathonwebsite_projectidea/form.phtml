@@ -33,7 +33,11 @@ $idea = $this->getProjectIdea();
         </div>
         <div class="control-group">
             <div class="controls">
-                <input type="submit" class="btn btn-primary" value="<?php echo $this->__('Add Idea') ?>"/>
+                <?php if($idea->getId()): ?>
+                    <input type="submit" class="btn btn-primary" value="<?php echo $this->__('Edit Idea') ?>"/>
+                <?php else: ?>
+                    <input type="submit" class="btn btn-primary" value="<?php echo $this->__('Add Idea') ?>"/>
+                <?php endif; ?>
             </div>
         </div>
         <input type="hidden" name="project_idea_id" value="<?php echo $idea->getId() ?>" />
