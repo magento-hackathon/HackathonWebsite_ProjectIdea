@@ -16,7 +16,7 @@
                 <p><?php echo $idea->getDescription(); ?></p>
                 <?php if($helper->isCustomerOwnerOfProjectIdea($idea)): ?>
                 <p class="bottom-right">
-                    <a href="<?php echo $this->getUrl('projectIdea/index/add', array('project_idea_id' => $idea->getId())); ?>">edit</a>
+                    <a class="btn btn-warning" href="<?php echo $this->getUrl('projectIdea/index/add', array('project_idea_id' => $idea->getId())); ?>">edit</a>
                 </p>
                 <?php endif; ?>
             </li>
