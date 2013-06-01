@@ -11,7 +11,8 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
     public function addAction()
     {
         $this->loadLayout();
-
+        $projectIdeaId = $this->getRequest()->getParam('project_idea_id');
+        $this->getLayout()->getBlock('form')->setProjectIdeaId($projectIdeaId);
         $this->renderLayout();
     }
 
@@ -37,11 +38,14 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
 
         if ($error) {
             /* @var $session Mage_Customer_Model_Session */
-            return $this->_redirect('projectIdea');
+            return $this->_redirect('projectIdea/index/add');
         }
 
         /* @var $projectIdea HackathonWebsite_ProjectIdea_Model_ProjectIdea */
-        $projectIdea = Mage::getModel('hackathonwebsite_projectidea/projectIdea');
+        $projectIdea = Mage::getModel('hackathonwebsite_projectidea/projectIdea')->load($data['project_idea_id']);
+        if(!isset($data['project_idea_id']) || !Mage::helper('hackathonwebsite_projectidea')->isCustomerOwnerOfProjectIdea($projectIdea)) {
+            $projectIdea = Mage::getModel('hackathonwebsite_projectidea/projectIdea');
+        }
         $projectIdea->setTitle($data['title']);
         $projectIdea->setDescription($data['description']);
         $projectIdea->setSubmitter($data['submitter']);

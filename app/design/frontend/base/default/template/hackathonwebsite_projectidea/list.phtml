@@ -1,4 +1,6 @@
 <?php /* @var $this HackathonWebsite_ProjectIdea_Block_List */ ?>
+<?php /* @var $helper HackathonWebsite_ProjectIdea_Helper_Data */ ?>
+<?php $helper = Mage::helper('hackathonwebsite_projectidea'); ?>
 <div class="page-title">
     <h1>
         <?php echo $this->__('Ideas for Projects') ?>
@@ -10,8 +12,13 @@
     <ul id="projectIdea-list" class="unstyled">
         <?php foreach ($this->getProjectIdeaCollection() as $idea): ?>
             <li class="well">
-                <strong><?php echo $this->htmlEscape($idea->getTitle()); ?></strong> (<?php echo $this->htmlEscape($idea->getSubmitter());?>)
-                <p><?php echo $this->htmlEscape($idea->getDescription()); ?></p>
+                <strong><?php echo $idea->getTitle(); ?></strong> (<?php echo $idea->getSubmitter();?>)
+                <p><?php echo $idea->getDescription(); ?></p>
+                <?php if($helper->isCustomerOwnerOfProjectIdea($idea)): ?>
+                <p class="bottom-right">
+                    <a href="<?php echo $this->getUrl('projectIdea/index/add', array('project_idea_id' => $idea->getId())); ?>">edit</a>
+                </p>
+                <?php endif; ?>
             </li>
         <?php endforeach; ?>
     </ul>

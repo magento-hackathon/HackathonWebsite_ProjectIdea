@@ -3,7 +3,7 @@
 
 /** @var $customer Mage_Customer_Model_Customer */
 $customer = Mage::getSingleton('customer/session')->getCustomer();
-
+$idea = $this->getProjectIdea();
 ?>
 <div class="projectIdea-create">
     <div class="page-title">
@@ -14,7 +14,7 @@ $customer = Mage::getSingleton('customer/session')->getCustomer();
 
         <div class="control-group">
             <label class="control-label" for="title"><?php echo $this->__('Project Title:') ?></label>
-            <div class="controls"><input type="text" name="title" id="title" /></div>
+            <div class="controls"><input type="text" name="title" id="title" value="<?php echo $this->escapeHtml($idea->getTitle()); ?>" /></div>
         </div>
         <div class="control-group">
             <label class="control-label" for="submitter"><?php echo $this->__('Your Name:') ?></label>
@@ -23,20 +23,20 @@ $customer = Mage::getSingleton('customer/session')->getCustomer();
                     <div class="control-pre-filled"><?php echo $customer->getName() ?></div>
                     <input type="hidden" name="submitter" value="<?php echo $customer->getName() ?>"/>
                 <?php else : ?>
-                    <input type="text" name="submitter" id="submitter" />
+                    <input type="text" name="submitter" id="submitter" value="<?php echo $this->escapeHtml($idea->getSubmitter()); ?>" />
                 <?php endif ?>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="description"><?php echo $this->__('Description:') ?></label>
-            <div class="controls"><textarea name="description" id="description"></textarea></div>
+            <div class="controls"><textarea name="description" id="description"><?php echo $this->escapeHtml($idea->getDescription()); ?></textarea></div>
         </div>
         <div class="control-group">
             <div class="controls">
                 <input type="submit" class="btn btn-primary" value="<?php echo $this->__('Add Idea') ?>"/>
             </div>
         </div>
-
+        <input type="hidden" name="project_idea_id" value="<?php echo $idea->getId() ?>" />
 
     </form>
     <script type="text/javascript">
