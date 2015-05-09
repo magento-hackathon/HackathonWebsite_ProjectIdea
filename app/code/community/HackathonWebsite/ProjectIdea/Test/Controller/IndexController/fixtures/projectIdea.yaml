@@ -4,3 +4,4 @@ tables:
       title: My cool projectidea
       submitter: Fabian Blechschmidt
       description: This is a short description of the project idea!
+      repository_url: http://github.com/

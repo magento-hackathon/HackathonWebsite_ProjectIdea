@@ -22,16 +22,19 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
         $title = 'My Title';
         $description = 'Beschreibung';
         $submitter = 'My Name';
+        $repositoryUrl = 'http://github.com/';
         $this->getRequest()->setMethod('POST');
         $this->getRequest()->setPost(
             array(
-                 'title'       => $title,
-                 'description' => $description,
-                 'submitter'   => $submitter
+                 'title'          => $title,
+                 'description'    => $description,
+                 'submitter'      => $submitter,
+                 'repository_url' => $repositoryUrl
             )
         );
+        $methods = array('save', 'setTitle', 'setDescription', 'setSubmitter', 'setRepositoryUrl');
         $projectMock = $this->getModelMock(
-            'hackathonwebsite_projectidea/projectIdea', array('save', 'setTitle', 'setDescription', 'setSubmitter')
+            'hackathonwebsite_projectidea/projectIdea', $methods
         );
         $projectMock->expects($this->once())
             ->method('save');
@@ -39,6 +42,7 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
         $projectMock->expects($this->once())->method('setTitle')->with($this->equalTo($title));
         $projectMock->expects($this->once())->method('setDescription')->with($this->equalTo($description));
         $projectMock->expects($this->once())->method('setSubmitter')->with($this->equalTo($submitter));
+        $projectMock->expects($this->once())->method('setRepositoryUrl')->with($this->equalTo($repositoryUrl));
 
         $this->replaceByMock('model', 'hackathonwebsite_projectidea/projectIdea', $projectMock);
 
@@ -82,6 +86,7 @@ class HackathonWebsite_ProjectIdea_Test_Controller_IndexController extends EcomD
         $this->assertResponseBodyContains('My cool projectidea'); // title
         $this->assertResponseBodyContains('Fabian Blechschmidt'); // submitter
         $this->assertResponseBodyContains('This is a short description of the project idea!'); // description
+        $this->assertResponseBodyContains('http://github.com/'); // Repository URL
     }
 
 }
