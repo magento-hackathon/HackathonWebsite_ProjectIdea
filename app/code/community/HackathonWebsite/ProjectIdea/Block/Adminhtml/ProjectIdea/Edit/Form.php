@@ -40,6 +40,11 @@ class HackathonWebsite_ProjectIdea_Block_Adminhtml_ProjectIdea_Edit_Form extends
             'name'      => 'description',
         ));
 
+        $fieldset->addField('repository_url', 'text', array(
+            'label'     => $this->__('Repository URL:'),
+            'name'      => 'repository_url',
+        ));
+
         $form->addValues($this->_getFormData());
 
         $form->setUseContainer(true);

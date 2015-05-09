@@ -45,6 +45,14 @@ class HackathonWebsite_ProjectIdea_Block_Adminhtml_ProjectIdea_Grid extends Mage
         );
 
         $this->addColumn(
+            'repository_url', array(
+                                'header' => Mage::helper('hackathonwebsite_projectidea')->__('Repository URL'),
+                                'align'  => 'left',
+                                'index'  => 'repository_url',
+                           )
+        );
+
+        $this->addColumn(
             'submitter', array(
                               'header' => Mage::helper('hackathonwebsite_projectidea')->__('Submitter'),
                               'align'  => 'left',
