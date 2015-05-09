@@ -32,6 +32,10 @@ $idea = $this->getProjectIdea();
             <div class="controls"><textarea name="description" id="description"><?php echo $this->escapeHtml($idea->getDescription()); ?></textarea></div>
         </div>
         <div class="control-group">
+            <label class="control-label" for="repository_url"><?php echo $this->__('Repository URL:') ?></label>
+            <div class="controls"><input type="text" name="repository_url" id="repository_url" value="<?php echo $this->escapeHtml($idea->getRepositoryUrl()); ?>" /></div>
+        </div>
+        <div class="control-group">
             <div class="controls">
                 <?php if($idea->getId()): ?>
                     <input type="submit" class="btn btn-primary" value="<?php echo $this->__('Edit Idea') ?>"/>

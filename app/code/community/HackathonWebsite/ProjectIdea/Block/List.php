@@ -16,6 +16,8 @@ class HackathonWebsite_ProjectIdea_Block_List extends Mage_Core_Block_Template
         $return = parent::_beforeToHtml();
 
         $this->_collection = Mage::getResourceModel('hackathonwebsite_projectidea/projectIdea_collection');
+        $filter = $this->getRequest()->getParam('filter', false);
+        $this->_collection->addFilters($filter);
         $this->_collection->addOrder('projectIdea_id', HackathonWebsite_ProjectIdea_Model_Resource_ProjectIdea_Collection::SORT_ORDER_DESC);
 
         return $return;

@@ -7,6 +7,6 @@ class HackathonWebsite_ProjectIdea_Test_Config_Setup extends EcomDev_PHPUnit_Tes
     }
 
     public function testSetupExists() {
-        $this->assertSchemeSetupScriptVersions(null, '1.0.2');
+        $this->assertSchemeSetupScriptVersions(null, '1.0.3');
     }
 }

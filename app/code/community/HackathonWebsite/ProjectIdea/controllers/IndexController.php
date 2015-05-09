@@ -53,6 +53,7 @@ class HackathonWebsite_ProjectIdea_IndexController extends Mage_Core_Controller_
         $projectIdea->setTitle($data['title']);
         $projectIdea->setDescription($data['description']);
         $projectIdea->setSubmitter($data['submitter']);
+        $projectIdea->setRepositoryUrl($data['repository_url']);
         $projectIdea->save();
 
         if (!Mage::helper('customer')->isLoggedIn()) {

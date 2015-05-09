@@ -5,6 +5,11 @@
     <h1>
         <?php echo $this->__('Ideas for Projects') ?>
     </h1>
+    <ul>
+        <li><a href="<?php echo $this->getUrl('projectIdea/index/index'); ?>"><?php echo $this->__('All ideas'); ?></a></li>
+        <li><a href="<?php echo $this->getUrl('projectIdea/index/index', array('filter' => HackathonWebsite_ProjectIdea_Model_ProjectIdea::FILTER_NO_REPO)); ?>"><?php echo $this->__('Ideas without repository'); ?></a></li>
+        <li><a href="<?php echo $this->getUrl('projectIdea/index/index', array('filter' => HackathonWebsite_ProjectIdea_Model_ProjectIdea::FILTER_REPO)); ?>"><?php echo $this->__('Ideas with repository'); ?></a></li>
+    </ul>
     <button class="btn btn-primary" onclick="setLocation('<?php echo $this->getUrl('projectIdea/index/add') ?>')"><?php echo $this->__('Add an Idea') ?></button>
 </div>
 
@@ -14,6 +19,9 @@
             <li class="well">
                 <strong><?php echo $idea->getTitle(); ?></strong> (<?php echo $idea->getSubmitter();?>) (<?php echo $this->formatDate($idea->getCreatedAt(), 'short'); ?>)
                 <p><?php echo $idea->getDescription(); ?></p>
+                <?php if ($idea->getRepositoryUrl()): ?>
+                <p><?php echo $this->__('Repository');?>: <a href="<?php echo $this->escapeHtml($idea->getRepositoryUrl()); ?>" ><?php echo $this->escapeHtml($idea->getRepositoryUrl()); ?></a></p>
+                <?php endif; ?>
                 <?php if($helper->isCustomerOwnerOfProjectIdea($idea)): ?>
                 <p class="bottom-right">
                     <a class="btn btn-warning" href="<?php echo $this->getUrl('projectIdea/index/add', array('project_idea_id' => $idea->getId())); ?>">edit</a>

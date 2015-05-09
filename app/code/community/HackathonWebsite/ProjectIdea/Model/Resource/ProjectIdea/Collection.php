@@ -8,4 +8,19 @@ class HackathonWebsite_ProjectIdea_Model_Resource_ProjectIdea_Collection
         $this->_init('hackathonwebsite_projectidea/projectIdea');
     }
 
+    /**
+     * @param string $filter
+     * @return HackathonWebsite_ProjectIdea_Model_Resource_ProjectIdea_Collection
+     */
+    public function addFilters($filter)
+    {
+        switch ($filter) {
+            case HackathonWebsite_ProjectIdea_Model_ProjectIdea::FILTER_NO_REPO:
+                $this->addFieldToFilter('repository_url', array('null' => true));
+                break;
+            case HackathonWebsite_ProjectIdea_Model_ProjectIdea::FILTER_REPO:
+                $this->addFieldToFilter('repository_url', array('notnull' => true));
+                break;
+        }
+    }
 }
