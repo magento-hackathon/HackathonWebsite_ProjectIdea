@@ -5,7 +5,7 @@
             <children>
                 <projectIdea translate="title" module="hackathonwebsite_projectidea">
                     <title>Project Ideas</title>
-                    <action>adminhtml/projectidea</action>
+                    <action>adminhtml/projectIdea</action>
                     <sort_order>18</sort_order>
                 </projectIdea>
             </children>
