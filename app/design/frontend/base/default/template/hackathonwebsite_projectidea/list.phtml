@@ -17,7 +17,7 @@
     <ul id="projectIdea-list" class="unstyled">
         <?php foreach ($this->getProjectIdeaCollection() as $idea): ?>
             <li class="well">
-                <strong><?php echo $idea->getTitle(); ?></strong> (<?php echo $idea->getSubmitter();?>) (<?php echo $this->formatDate($idea->getCreatedAt(), 'short'); ?>)
+                <strong><?php echo $idea->getTitle(); ?></strong> (<?php echo $idea->getSubmitter();?>)<?php if ($idea->getCreatedAt()): ?> (<?php echo $this->formatDate($idea->getCreatedAt(), 'short'); ?>)<?php endif; ?>
                 <p><?php echo $idea->getDescription(); ?></p>
                 <?php if ($idea->getRepositoryUrl()): ?>
                 <p><?php echo $this->__('Repository');?>: <a href="<?php echo $this->escapeHtml($idea->getRepositoryUrl()); ?>" ><?php echo $this->escapeHtml($idea->getRepositoryUrl()); ?></a></p>
